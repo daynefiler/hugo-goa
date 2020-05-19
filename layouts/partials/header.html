@@ -48,3 +48,7 @@
 </head>
 <body lang="{{ .Site.LanguageCode }}">
 <div class="container">
+
+{{ if .Page.Params.isMath }}
+    {{ partial "mathjax.html" . }}
+{{ end }}
