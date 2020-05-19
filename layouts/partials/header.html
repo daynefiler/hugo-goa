@@ -45,8 +45,11 @@
 {{ with .Site.Params.meta.maskicon }}<link rel="mask-icon" href="/img/{{ . }}" color="#5bbad5">{{ end }}
 <meta name="theme-color" content="#ffffff">
 
+{{ if .Page.Params.isMath }}
+    {{ partial "mathjax.html" . }}
+{{ end }}
+
 </head>
 <body lang="{{ .Site.LanguageCode }}">
 <div class="container">
 
-{{ partial "mathjax.html" . }}
