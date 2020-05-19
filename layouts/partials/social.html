@@ -5,6 +5,9 @@
   {{ with .Site.Params.social.google }}
   <a href="https://plus.google.com/{{.}}/about" aria-label="Google Plus" target="_blank"><i class="fab fa-google-plus" aria-hidden="true"></i></a>&nbsp;
   {{ end }}
+  {{ with .Site.Params.social.googlescholar}}
+  <a href="https://scholar.google.com/citations?user={{.}}" aria-label="Google Scholar" target="_blank"><i class="fas fa-graduation-cap" aria-hidden="true"></i></a>&nbsp;
+  {{ end }}
   {{ with .Site.Params.social.goodreads }}
   <a href="https://www.goodreads.com/user/show/{{.}}" aria-label="Goodreads" target="_blank"><i class="fab fa-goodreads" aria-hidden="true"></i></a>&nbsp;
   {{ end }}
@@ -89,6 +92,9 @@
   {{ with .Site.Params.social.tumblr}}
   <a href="https://{{.}}.tumblr.com" aria-label="Tumblr" target="_blank"><i class="fab fa-tumblr" aria-hidden="true"></i></a>&nbsp;
   {{ end }}
+  {{ with .Site.Params.social.strava}}
+  <a href="https://www.strava.com/athletes/{{.}}" aria-label="Strava" target="_blank"><i class="fab fa-strava" aria-hidden="true"></i></a>&nbsp;
+  {{ end }}
   {{ with .Site.Params.social.skype}}
   <a href="skype:{{.}}" aria-label="Skype" target="_blank"><i class="fab fa-skype" aria-hidden="true"></i></a>&nbsp;
   {{ end }}
@@ -101,8 +107,14 @@
   {{ with .Site.Params.social.email }}
   <a href="mailto:{{.}}" aria-label="Email" target="_blank"><i class="fas fa-envelope" aria-hidden="true"></i></a>&nbsp;
   {{ end }}
+  {{ with .Site.Params.social.pgp }}
+  <a href="/{{.}}.txt" aria-label="PGP" name="{{.}}"><i class="fas fa-key" aria-hidden="true"></i></a>&nbsp;
+  {{ end }}
   {{ if and ( .Site.Params.extra.rss ) ( .RSSLink ) }}
   <a href="{{ .RSSLink }}" aria-label="RSS" target="_blank"><i class="fas fa-rss" aria-hidden="true"></i></a>&nbsp;
+  {{ end }}
+  {{ with .Site.Params.social.orcid }}
+  <a href="https://orcid.org/{{.}}" aria-label="ORCID" target="_blank"><i class="fas fa-orcid" aria-hidden="true"></i></a>&nbsp;
   {{ end }}
 </section>
 {{ if .Site.Params.extra.socialmarkup }}
@@ -115,6 +127,7 @@
   "sameAs": [
     {{ with .Site.Params.social.twitter }}"https://twitter.com/{{.}}",{{ end }}
     {{ with .Site.Params.social.google }}"https://plus.google.com/{{.}}/about",{{ end }}
+    {{ with .Site.Params.social.googlescholar}}"https://scholar.google.com/citations?user={{.}}"{{ end }}
     {{ with .Site.Params.social.goodreads }}"https://www.goodreads.com/user/show/{{.}}",{{ end }}
     {{ with .Site.Params.social.lastfm }}"https://www.last.fm/user/{{.}}/",{{ end }}
     {{ with .Site.Params.social.facebook }}"https://facebook.com/{{.}}",{{ end }}
@@ -143,6 +156,7 @@
     {{ with .Site.Params.social.twitch}}"https://www.twitch.tv/{{.}}",{{ end }}
     {{ with .Site.Params.social.soundcloud}}"https://soundcloud.com/{{.}}",{{ end }}
     {{ with .Site.Params.social.tumblr}}"https://{{.}}.tumblr.com",{{ end }}
+    {{ with .Site.Params.social.strava}}"https://www.strava.com/athletes/{{.}}",{{ end }},
     "{{ .Site.Params.baseURL }}"
   ]
 }
